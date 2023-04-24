@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sshagent(['my-creds']) {
-          sh 'ssh ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog/*" && scp -r "${PWD}" ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/'
+          sh 'ssh ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog/*" && scp -r "${PWD}/*" ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/'
         }
       }
     }
