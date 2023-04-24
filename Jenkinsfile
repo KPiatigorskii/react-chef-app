@@ -22,7 +22,10 @@ pipeline {
     
     stage('Deploy') {
       steps {
-        echo 'Deploy stuff'
+        sshagent(['my-ssh-creds']) {
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-88-53-27.compute-1.amazonaws.com "rm -rf /var/www/html/*"'
+          sh 'scp -o StrictHostKeyChecking=no -r build/ ubuntu@ec2-3-88-53-27.compute-1.amazonaws.com:/var/www/html/'
+        }
       }
     }
   }
