@@ -25,7 +25,7 @@ pipeline {
         sshagent(['my-creds']) {
           sh """
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog/*"
-          scp -o StrictHostKeyChecking=no -r ${PWD}/react-chef-app/my-blog  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/
+          scp -o StrictHostKeyChecking=no -r ${PWD}/workspace/react-chef-app/my-blog  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/
           """
         }
       }
