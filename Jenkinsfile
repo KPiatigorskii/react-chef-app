@@ -26,7 +26,7 @@ pipeline {
           sh """
           echo "${WORKSPACE}"
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog/*"
-          scp -o StrictHostKeyChecking=no -r ${WORKSPACE}  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/
+          scp -o StrictHostKeyChecking=no -r ${PWD}/workspace/react-chef-app  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog/
           """
         }
       }
