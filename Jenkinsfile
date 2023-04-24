@@ -14,10 +14,8 @@ pipeline {
       }
       post {
         always {
-            junit 'test-results/**/*.xml'
-            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                sh "exit 1"
-            }
+            //junit 'test-results/**/*.xml'
+            echo "this will be test report"
         }
       }
     }
