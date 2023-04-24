@@ -1,9 +1,3 @@
-<p align="center">
-    <a href="https://react-chef.js.org/"><img height="240" width="235" src="react-chef.svg"></a>
-</p>
-
-# ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react-chef)
-
 React-Chef is a Node Module helps you to create react boiler plate apps instantly, prescribing best practices and tools to help you stay productive and mainly transparent React Boilerplate App.
 
 This Module aims to helps developer to create react app instantly.
