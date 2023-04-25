@@ -42,8 +42,8 @@ pipeline {
           sh """
           echo "${WORKSPACE}"
           ls -l
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog-develop/*"
-          scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/my-blog  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog-develop/
+          ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} "rm -rf /home/ubuntu/my-blog-develop/*"
+          scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/my-blog  ubuntu@${ec2_instanse}:/home/ubuntu/my-blog-develop/
           """
         }
       }
@@ -58,8 +58,8 @@ pipeline {
           sh """
           echo "${WORKSPACE}"
           ls -l
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com "rm -rf /home/ubuntu/my-blog-master/*"
-          scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/my-blog  ubuntu@ec2-3-83-182-36.compute-1.amazonaws.com:/home/ubuntu/my-blog-master/
+          ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} "rm -rf /home/ubuntu/my-blog-master/*"
+          scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/my-blog  ubuntu@${ec2_instanse}:/home/ubuntu/my-blog-master/
           """
         }
       }
