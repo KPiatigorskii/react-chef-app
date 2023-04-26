@@ -4,6 +4,7 @@ pipeline {
   stages {    
     stage('Install dependencies') {
       steps {
+        echo "Current branch is ${scm.branches[0].name}"
         sh 'npm install'
       }
     }
@@ -35,7 +36,7 @@ pipeline {
 
     stage('Deploy to develop') {
       when {
-        branch 'develop'
+        equals expected: 'develop', actual: scm.branches[0].name 
       }
       steps {
         sshagent(['my-creds']) {
@@ -50,8 +51,8 @@ pipeline {
     }
     
     stage('Deploy to master') {
-      when {
-        branch 'master'
+      when { 
+        equals expected: 'master', actual: scm.branches[0].name 
       }
       steps {
         sshagent(['my-creds']) {
