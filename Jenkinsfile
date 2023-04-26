@@ -35,9 +35,9 @@ pipeline {
     }
 
     stage('Deploy to develop') {
-      when {
-        branch 'develop'
-      }
+      // when {
+      //   branch 'develop'
+      // }
       when {
         equals expected: 'develop', actual: scm.branches[0].name 
       }
@@ -54,9 +54,9 @@ pipeline {
     }
     
     stage('Deploy to master') {
-      when { 
-        equals expected: 'master', actual: scm.branches[0].name 
-      }
+      // when { 
+      //   equals expected: 'master', actual: scm.branches[0].name 
+      // }
       steps {
         sshagent(['my-creds']) {
           sh """
