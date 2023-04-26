@@ -4,6 +4,7 @@ pipeline {
   stages {    
     stage('Install dependencies') {
       steps {
+        echo "Current branch is ${BRANCH_NAME}"
         sh 'npm install'
       }
     }
